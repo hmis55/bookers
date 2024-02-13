@@ -5,19 +5,29 @@
     <tr>
       <th>title</th>
       <th>Body</th>
-      <th>colspan="3"></th>
+      <th colspan ="3"></th>
     </tr>
-    </thead>
-
- <tbody>
-   <tr>
-     <td>リーダーコード</td>
-     <td>より良いコードを書くためのシンプルで実践的なテクニック</td>
-     <td>show</td>
-     <td>Edit</td>
-     <td>Destroy></td>
-   </tr>
-
- </tbody>
+  </thead>
+  <tbody>
+  <% @books.each do |book| %>
+    <tr>
+       <td><%= book.title %></td>
+       <td><%= book.body %></td>
+       <td><%= link_to "show", books_show_path %></td>
+       <td><%= link_to "Edit","/edit_path"%></td>
+       <td><%= link_to "Destroy","/destroy_path"%></td>
+    </tr>
+  <%end%>
+  </tbody>
 </table>
+
+
+<h1>New book</h1>
+<%= form_with model: @book do |f| %>
+  <h4>Titele</h4>
+  <%= f.text_field :title %>
+  <h4>Body</h4>
+  <%= f.text_area :body %>
+  <%= f.submit 'Create Book' %>
+<% end %>
 
