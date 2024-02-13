@@ -4,13 +4,14 @@ class BookController < ApplicationController
   end
 
   def create
-    list = Book.new(list_params)
-    list.save
+    book = Book.new(book_params)
+    book.save
     redirect_to '/top'
   end
 
 
   def index
+    @book = Book.all
   end
 
   def show
@@ -19,8 +20,8 @@ class BookController < ApplicationController
   def edit
   end
 
-  provate
-  def list_parmas
+  private
+  def book_parmas
     params.require(:book).permit(:title, :body)
   end
 end
