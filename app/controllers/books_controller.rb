@@ -15,11 +15,12 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book = Book.find(book_params[:id])
+    @book = Book.find(params[:id])
+  
   end
 
   def destroy
-    book = BooK.find(book_params[:id])
+    book = BooK.find(params[:id])
     book.destroy
     redirect_to '/books'
   end
@@ -27,6 +28,6 @@ class BooksController < ApplicationController
 
   private
   def book_params
-    params.require(:book).permit(:title, :body)
+    params.require(:book).permit(:title,:body)
   end
 end

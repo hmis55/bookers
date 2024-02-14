@@ -13,8 +13,8 @@
     <tr>
        <td><%= book.title %></td>
        <td><%= book.body %></td>
-       <td><%= link_to "show", books_show_path %></td>
-       <td><%= link_to "Edit", books_edit_path %></td>
+       <td><%= link_to "show", book_path(book) %> </td>
+       <td><%= link_to "Edit", edit_book_path(book) %>> </td>
        <td> "Destroy"</td>
     </tr>
   <%end%>
